@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Now - Government of India Online Marriage Portal</title>
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+
+        /* Background with patterns */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png'), linear-gradient(135deg, rgba(255, 228, 229, 0.7), rgba(255, 182, 193, 0.5));
+            background-size: 50px 50px, cover;
+            animation: backgroundAnimation 10s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0 0, 0 0; }
+            50% { background-position: 50px 50px, 0 0; }
+            100% { background-position: 0 0, 0 0; }
+        }
+
+        /* Dialog Box */
+        .dialog-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            width: 350px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+            z-index: 2;
+        }
+
+        .dialog-box h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            animation: fadeInText 1s ease;
+        }
+
+        .dialog-box input {
+            margin-top: 15px;
+            padding: 12px;
+            font-size: 1em;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .dialog-box input:focus {
+            border-color: #ff4d4d;
+            transform: scale(1.05);
+        }
+
+        .dialog-box button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: white;
+            background: #ff4d4d;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .dialog-box button:hover {
+            background: #ff6666;
+            transform: scale(1.05);
+        }
+
+        /* Form Container */
+        .form-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 80%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+            margin-top: 20px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .form-container h2 {
+            margin-bottom: 30px;
+            font-size: 2em;
+            text-align: center;
+            color: #4CAF50;
+            animation: fadeInText 1s ease;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            width: 100%;
+            animation: formInputAnimation 1s ease;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4CAF50;
+            font-size: 1.1em;
+            animation: fadeInText 1s ease;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group input[type="file"] {
+            padding: 12px;
+            font-size: 1em;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border 0.3s ease-in-out, transform 0.2s ease;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group input[type="file"]:focus {
+            border-color: #4CAF50;
+            transform: scale(1.05);
+        }
+
+        /* Apply Now Button */
+        .apply-now {
+            padding: 12px 30px;
+            font-size: 1.2em;
+            color: white;
+            background: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .apply-now:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            color: #4CAF50;
+        }
+
+        .gov-logo {
+            margin-top: 20px;
+            width: 150px;
+            animation: fadeInLogo 2s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInLogo {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="background"></div>
+
+    <!-- Application Number Dialog Box -->
+    <div class="dialog-box">
+        <h2>Enter Your Application Number</h2>
+        <input type="text" id="applicationNumber" placeholder="Enter 12-digit number">
+        <button onclick="checkApplicationNumber()">Submit</button>
+        <p id="error-message" style="color: red; display: none; margin-top: 10px;">Invalid number. Please try again.</p>
+    </div>
+
+    <!-- Form Container -->
+    <div id="form-container" class="form-container">
+        <h2>Marriage Application Form</h2>
+        <form id="marriageForm">
+            <div class="form-group">
+                <label>Bride's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Father's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Mother's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Father's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Mother's Name:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Home Address:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Home Address:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Aadhar Number:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Aadhar Number:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Father Aadhar Number:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Mother Aadhar Number:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's 10th Certificate Percentage:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's 10th Certificate Percentage:</label>
+                <input type="number" required>
+            </div>
+            <div class="form-group">
+                <label>Place of Marriage:</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Date of Marriage:</label>
+                <input type="date" required>
+            </div>
+            <div class="form-group">
+                <label>Time of Marriage:</label>
+                <input type="text" required>
+            </div>
+            <!-- Additional Required File Uploads -->
+            <div class="form-group">
+                <label>Marriage Proof Photo:</label>
+                <input type="file" required>
+            </div>
+            <div class="form-group">
+                <label>Groom's Photo:</label>
+                <input type="file" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Photo:</label>
+                <input type="file" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Aadhar Card Photo:</label>
+                <input type="file" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Father Aadhar Card:</label>
+                <input type="file" required>
+            </div>
+            <div class="form-group">
+                <label>Bride's Mother Aadhar Card:</label>
+                <input type="file" required>
+            </div>
+            <button class="apply-now" type="button" onclick="submitApplication()">Apply Now</button>
+        </form>
+    </div>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-message">
+        <h2>Application Submitted Successfully!</h2>
+        <img src="https://w7.pngwing.com/pngs/627/195/png-transparent-government-of-gujarat-cantonment-board-dehu-road-government-of-india-government-miscellaneous-mammal-text-thumbnail.png" class="gov-logo" alt="Indian Government Logo">
+        <p>Further notifications will be sent soon.</p>
+    </div>
+
+    <script>
+        function checkApplicationNumber() {
+            const applicationNumber = document.getElementById('applicationNumber').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (applicationNumber === "824929703398") {
+                errorMessage.style.display = "none";
+                document.querySelector('.dialog-box').style.display = 'none';
+                document.getElementById('form-container').style.display = 'flex';
+            } else {
+                errorMessage.style.display = "block";
+            }
+        }
+
+        function submitApplication() {
+            const form = document.getElementById('marriageForm');
+            if (form.checkValidity()) {
+                document.getElementById('form-container').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
+            } else {
+                alert("Please fill in all required fields.");
+            }
+        }
+    </script>
+</body>
+</html>

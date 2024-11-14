@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status - Government of India Online Marriage Portal</title>
+    <style>
+        /* Global reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            color: #333;
+        }
+
+        /* Blinking dot */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Status container */
+        .status-container {
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .status-container h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            animation: fadeIn 1s ease;
+        }
+
+        .status-container .status-message {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .status-container .green-dot {
+            width: 12px;
+            height: 12px;
+            margin-left: 8px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        /* Terms and Conditions */
+        .terms-container {
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.6;
+            animation: fadeInTerms 2s ease;
+        }
+
+        .terms-container h3 {
+            font-size: 1.1em;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .terms-container p {
+            margin-bottom: 10px;
+            animation: fadeInText 1.5s ease forwards;
+            opacity: 0;
+        }
+
+        /* Animated fade-in for paragraphs */
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Background patterns */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Container -->
+    <div class="status-container">
+        <h2>Application Status</h2>
+        <div class="status-message">
+            Application number 824929703398 is pending for confirmation 
+            <div class="green-dot"></div>
+        </div>
+
+        <!-- Terms and Conditions Section -->
+        <div class="terms-container">
+            <h3>Terms and Conditions:</h3>
+            <p>1. All information provided must be accurate and verifiable. Any false information will lead to immediate cancellation of the marriage application.</p>
+            <p>2. Both applicants must ensure that all required documents are submitted within the specified timelines.</p>
+            <p>3. Failure to comply with governmental guidelines regarding marriage laws may lead to legal consequences, including annulment of marriage.</p>
+            <p>4. If any unauthorized persons are found involved in the process, the application will be voided, and legal action may be taken.</p>
+            <p>5. The certificate is subject to approval based on the fulfillment of all conditions stated by the governing authority.</p>
+            <p>6. Any discrepancies in the submitted documents will be addressed by the government, and applicants are responsible for rectifications.</p>
+            <p>7. Failure to attend the marriage verification meeting will result in cancellation of the marriage application.</p>
+            <p>8. The marriage certificate may be revoked if there is any dispute or misrepresentation discovered post-approval.</p>
+            <p>9. All fees paid are non-refundable in case of cancellation due to breach of terms.</p>
+            <p>10. Applicants are required to comply with all the local marriage laws as outlined by the Government of India.</p>
+        </div>
+    </div>
+</body>
+</html>
